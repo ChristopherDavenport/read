@@ -13,6 +13,11 @@ private[read] object util {
       case NonFatal(e) => Left(e)
     }
 
-  def parseNonFatal[A](a: => A): Either[ReadException.type, A] = 
-    leftMap(catchNonFatal(a))(_ => ReadException)
+  def parseNonFatal[A](a: => A): Either[ReadException, A] = 
+    leftMap(catchNonFatal(a))(_ => ReadException())
+
+  def readNonFatal[A](f: String => A): Read[A] = new Read[A]{
+    override def read(s: String): Either[ReadException, A] = 
+      parseNonFatal(f(s))
+  } 
 }
