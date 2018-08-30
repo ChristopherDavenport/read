@@ -11,6 +11,5 @@ object ReadException {
   }
 
   final case object ReadFailure extends ReadException with NoStackTrace
-
 }
 
