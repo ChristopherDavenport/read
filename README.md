@@ -11,3 +11,17 @@ To use read in an existing SBT project with Scala 2.11 or a later version, add t
 ```scala
 libraryDependencies += "io.chrisdavenport" %% "read" % "<version>"
 ```
+
+## Examples
+
+```scala
+import io.chrisdavenport.read.Read
+import io.chrisdavenport.read.implicits._
+
+"1".read[Int] // Right(1)
+
+"Foo".read[Int] // Left
+
+// For Those Who Want Haskell's Read
+Read[Int].unsafeRead("1") // 1: Int
+```
