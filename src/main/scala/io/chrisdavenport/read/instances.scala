@@ -33,9 +33,9 @@ trait AllInstances {
   implicit val readUUID : Read[java.util.UUID] =
     readNonFatal(java.util.UUID.fromString)
   implicit val readUnit : Read[Unit] = new Read[Unit]{
-    def read(s: String): Either[ReadException, Unit] = s match {
+    def read(s: String): Either[Throwable, Unit] = s match {
       case "()" => Right(())
-      case _ => Left(ReadException.ReadFailure)
+      case _ => Left(ReadException)
     }
   }
 
