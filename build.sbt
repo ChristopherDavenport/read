@@ -4,22 +4,8 @@ lazy val core = project.in(file("."))
       name := "read"
     )
 
-val catsV = "1.1.0"
-val kittensV = "1.1.0"
-val catsEffectV = "0.10.1"
-val mouseV = "0.17"
-val shapelessV = "2.3.2"
-val fs2V = "0.10.5"
-val http4sV = "0.18.14"
-val circeV = "0.9.3"
-val doobieV = "0.5.3"
-val pureConfigV = "0.9.1"
-val refinedV = "0.9.1"
-
-val specs2V = "4.2.0"
+val catsV = "1.2.0"
 val disciplineV = "0.8"
-val scShapelessV = "1.1.6"
-
 
 lazy val contributors = Seq(
   "ChristopherDavenport" -> "Christopher Davenport"
@@ -40,43 +26,8 @@ lazy val commonSettings = Seq(
   addCompilerPlugin("org.spire-math" % "kind-projector" % "0.9.7" cross CrossVersion.binary),
   addCompilerPlugin("com.olegpy" %% "better-monadic-for" % "0.2.4"),
   libraryDependencies ++= Seq(
-    "org.typelevel"               %% "cats-core"                  % catsV,
-
-    "org.typelevel"               %% "kittens"                    % kittensV,
-    "org.typelevel"               %% "alleycats-core"             % catsV,
-    "org.typelevel"               %% "mouse"                      % mouseV,
-
-    "org.typelevel"               %% "cats-effect"                % catsEffectV,
-
-    "com.chuusai"                 %% "shapeless"                  % shapelessV,
-
-    "co.fs2"                      %% "fs2-core"                   % fs2V,
-    "co.fs2"                      %% "fs2-io"                     % fs2V,
-
-    "org.http4s"                  %% "http4s-dsl"                 % http4sV,
-    "org.http4s"                  %% "http4s-blaze-server"        % http4sV,
-    "org.http4s"                  %% "http4s-blaze-client"        % http4sV,
-    "org.http4s"                  %% "http4s-circe"               % http4sV,
-
-    "io.circe"                    %% "circe-core"                 % circeV,
-    "io.circe"                    %% "circe-generic"              % circeV,
-    "io.circe"                    %% "circe-parser"               % circeV,
-
-    "org.tpolecat"                %% "doobie-core"                % doobieV,
-    "org.tpolecat"                %% "doobie-h2"                  % doobieV,
-    "org.tpolecat"                %% "doobie-hikari"              % doobieV,
-    "org.tpolecat"                %% "doobie-postgres"            % doobieV,
-    "org.tpolecat"                %% "doobie-specs2"              % doobieV       % Test,
-
-    "com.github.pureconfig"       %% "pureconfig"                 % pureConfigV,
-
-    "eu.timepit"                  %% "refined"                    % refinedV,
-    "eu.timepit"                  %% "refined-scalacheck"         % refinedV      % Test,
-
-    "org.specs2"                  %% "specs2-core"                % specs2V       % Test,
-    "org.specs2"                  %% "specs2-scalacheck"          % specs2V       % Test,
+    "org.typelevel"               %% "cats-testkit"               % catsV         % Test,
     "org.typelevel"               %% "discipline"                 % disciplineV   % Test,
-    "com.github.alexarchambault"  %% "scalacheck-shapeless_1.13"  % scShapelessV  % Test
   )
 )
 
