@@ -15,4 +15,9 @@ private[read] object util {
 
   def parseNonFatal[A](a: => A): Either[ReadException, A] = 
     leftMap(catchNonFatal(a))(_ => ReadException())
+
+  def mapEither[E,A, B](e: Either[E, A])(f: A => B): Either[E, B] = e match {
+    case Right(a) => Right(f(a))
+    case l@Left(_) => l.asInstanceOf[Either[E, B]]
+  }
 }

@@ -24,6 +24,6 @@ object Read {
 
   def functor[A, B](r: Read[A])(f: A => B): Read[B] = new Read[B]{
     def read(s: String): Either[ReadException, B] = 
-      r.read(s).map(f)
+      util.mapEither(r.read(s))(f)
   }
 }
