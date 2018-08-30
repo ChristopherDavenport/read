@@ -1,11 +1,11 @@
 lazy val core = project.in(file("."))
-    .settings(commonSettings)
+    .settings(commonSettings, releaseSettings)
     .settings(
       name := "read"
     )
 
 val catsV = "1.2.0"
-val disciplineV = "0.8"
+val disciplineV = "0.10.0"
 
 lazy val contributors = Seq(
   "ChristopherDavenport" -> "Christopher Davenport"
