@@ -16,4 +16,14 @@ trait Read[A]{
 
 object Read {
   def apply[A](implicit ev: Read[A]): Read[A] = ev
+
+  def readNonFatal[A](f: String => A): Read[A] = new Read[A]{
+    override def read(s: String): Either[ReadException, A] = 
+      util.parseNonFatal(f(s))
+  } 
+
+  def functor[A, B](r: Read[A])(f: A => B): Read[B] = new Read[B]{
+    def read(s: String): Either[ReadException, B] = 
+      r.read(s).map(f)
+  }
 }

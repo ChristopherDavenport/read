@@ -1,6 +1,6 @@
 package io.chrisdavenport.read
 
-import util.readNonFatal
+import Read.readNonFatal
 
 /**
     with EitherInstances
@@ -27,8 +27,6 @@ trait AllInstances {
   implicit val readDouble: Read[Double] = readNonFatal(_.toDouble)
   implicit val readFloat: Read[Float] = readNonFatal(_.toFloat)
   implicit val readInt: Read[Int] = readNonFatal(_.toInt)
-  
-  
   implicit val readLong : Read[Long] = readNonFatal(_.toLong)
   implicit val readShort : Read[Short] = readNonFatal(_.toShort)
   implicit val readString : Read[String] = readNonFatal(identity)
