@@ -20,11 +20,11 @@ onLoad in Global := { s =>
 lazy val commonSettings = Seq(
   organization := "io.chrisdavenport",
 
-  scalaVersion := "2.12.6",
-  crossScalaVersions := Seq(scalaVersion.value, "2.11.12"),
+  scalaVersion := "2.12.8",
+  crossScalaVersions := Seq("2.13.0-M5", scalaVersion.value, "2.11.12"),
 
   addCompilerPlugin("org.spire-math" % "kind-projector" % "0.9.9" cross CrossVersion.binary),
-  addCompilerPlugin("com.olegpy" %% "better-monadic-for" % "0.2.4"),
+  addCompilerPlugin("com.olegpy" %% "better-monadic-for" % "0.3.0-M4"),
   libraryDependencies ++= Seq(
     "org.typelevel"               %% "cats-testkit"               % catsV         % Test,
     "org.typelevel"               %% "discipline"                 % disciplineV   % Test,
