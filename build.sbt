@@ -16,7 +16,7 @@ lazy val commonSettings = Seq(
   organization := "io.chrisdavenport",
 
   scalaVersion := "2.12.14",
-  crossScalaVersions := Seq("2.13.0-M5", scalaVersion.value, "2.11.12"),
+  crossScalaVersions := Seq("2.13.6", scalaVersion.value, "2.11.12"),
 
   addCompilerPlugin("org.typelevel" % "kind-projector" % "0.10.0" cross CrossVersion.binary),
   addCompilerPlugin("com.olegpy" %% "better-monadic-for" % "0.3.0-M4"),
